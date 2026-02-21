@@ -57,6 +57,7 @@ The application is actively being refined. The following technical improvements 
 * **Soft Deletion Mechanism:** Transitioning from hard deletes to soft deletes for the `User` entity using `isActive` flag.
 * **Server-Side Pagination:** Implementing Spring Data JPA pagination for administrative table views to optimize database queries, reduce load times, and improve UI performance when handling large datasets.
 * **Global Exception Handling:** Establishing a centralized `@ControllerAdvice` architecture to catch backend errors gracefully, providing standardized, user-friendly error messages and robust system logging.
+* **User and request for leaves and editing attendance information.
 
 ---
 ## 🛠️ Installation & Setup
