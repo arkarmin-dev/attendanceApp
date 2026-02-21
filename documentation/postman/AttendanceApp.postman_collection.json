@@ -1,0 +1,346 @@
+{
+  "info": {
+    "_postman_id": "492bbc5c-d4f0-4e4a-a77c-6667c12b902b",
+    "name": "AttendanceApp",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36528868"
+  },
+  "item": [
+    {
+      "name": "Admin User Managment",
+      "item": [
+        {
+          "name": "List User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/{{AdminUrl}}/user/list",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "{{AdminUrl}}",
+                "user",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User (by userId)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/{{AdminUrl}}/user/14",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "{{AdminUrl}}",
+                "user",
+                "14"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"zawzaw\",\r\n  \"password\": \"password\",\r\n  \"fullName\": \"Zaw Zaw Htun\",\r\n  \"email\": \"zawzaw@email.com\",\r\n  \"phoneNum\": \"9200400300\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseUrl}}/{{AdminUrl}}/user/create",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "{{AdminUrl}}",
+                "user",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fullName\": \"Kyaw Zin Htun\",\r\n  \"email\": \"kyawkyaw@email.com\",\r\n  \"phoneNum\": 9200400500\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseUrl}}/{{AdminUrl}}/user/update/14",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "{{AdminUrl}}",
+                "user",
+                "update",
+                "14"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/{{AdminUrl}}/user/13",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "{{AdminUrl}}",
+                "user",
+                "13"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "basic",
+        "basic": [
+          {
+            "key": "password",
+            "value": "password",
+            "type": "string"
+          },
+          {
+            "key": "username",
+            "value": "admin_admin",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin Attendance Management",
+      "item": [
+        {
+          "name": "Get All User Attendances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/{{AdminUrl}}/attendance/list",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "{{AdminUrl}}",
+                "attendance",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User Attendance",
+      "item": [
+        {
+          "name": "Get All Attendance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/{{UserUrl}}/attendance/list",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "{{UserUrl}}",
+                "attendance",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create In Attendance",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/{{UserUrl}}/attendance/check-in",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "{{UserUrl}}",
+                "attendance",
+                "check-in"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Out Attendance",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/{{UserUrl}}/attendance/check-out",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "{{UserUrl}}",
+                "attendance",
+                "check-out"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "basic",
+        "basic": [
+          {
+            "key": "password",
+            "value": "password",
+            "type": "string"
+          },
+          {
+            "key": "username",
+            "value": "thithioo",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "password",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "admin_admin",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BaseUrl",
+      "value": ""
+    },
+    {
+      "key": "AdminUrl",
+      "value": ""
+    },
+    {
+      "key": "UserUrl",
+      "value": ""
+    }
+  ]
+}
