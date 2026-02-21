@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <div th:replace="~{layout::common-head}"></div>
+  <title>Admin Dashboard</title>
+</head>
+
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Attendance Admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">All Logs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/manageUserPage">Manage Users</a>
+        </li>
+      </ul>
+      <form th:action="@{/logout}" method="post" class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>User Attendance Logs</h2>
+      <button class="btn btn-success">+ Manual Entry</button>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-body p-0">
+        <table class="table table-hover table-striped mb-0">
+          <thead class="thead-light">
+            <tr>
+              <th>User Name</th>
+              <th>Date</th>
+              <th>In Time</th>
+              <th>Out Time</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="log : ${attendanceList}">
+              <td th:text="${log.userFullName()}"></td>
+              <td th:text="${log.date()}"></td>
+              <td th:text="${log.inTime()}"></td>
+              <td th:text="${log.outTime()}"></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary">View</button>
+              </td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(attendanceList)}">
+              <td colspan="5" class="text-center text-muted py-4">No attendance records found for today.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div th:replace="~{layout::common-scripts}"></div>
+</body>
+
+</html>
